@@ -22,13 +22,30 @@ def return_population(df_all):
     df_pop = df_pop.reset_index()
     return df_pop
 
-def return_Co2Emissions(df_all): 
+def return_Co2Emissions_liquid(df_all): 
     df_pop = df_all[df_all['Indicator Name']=='CO2 emissions from liquid fuel consumption (kt)']
+    df_pop = df_pop.reset_index()
+    return df_pop
+
+def return_Co2Emissions_solid(df_all): 
+    df_pop = df_all[df_all['Indicator Name']=='CO2 emissions from solid fuel consumption (kt)']
+    df_pop = df_pop.reset_index()
+    return df_pop
+
+def return_arable_lands(df_all): 
+    df_pop = df_all[df_all['Indicator Name']=='Arable land (% of land area)']
+    df_pop = df_pop.reset_index()
+    return df_pop
+
+def return_agricultural_lands(df_all): 
+    df_pop = df_all[df_all['Indicator Name']=='Agricultural land (sq. km)']
     df_pop = df_pop.reset_index()
     return df_pop
 
 
 
 df = pd.read_csv('API_19_DS2_en_csv_v2_4700503.csv')
-#print(return_population(df))
-print(return_Co2Emissions(df))
+print(return_Co2Emissions_liquid(df))
+print(return_Co2Emissions_solid(df))
+print(return_arable_lands(df))
+print(return_agricultural_lands(df))
