@@ -78,6 +78,42 @@ df_population, df_pop_growth, df_Co2_liquid, df_Co2_solid, df_lands, df_populati
 # print(df_population_t.max())
 # print(scp.pearsonr(df_population_t['Aruba'], df_agri_lands_t['Aruba']))
 
+print("Stat Values")
+print("Population VS Lands:")
+print("China")
+print(scp.pearsonr(df_pop_growth_t['China'],df_lands_t["China"]))
+print("India")
+print(scp.pearsonr(df_pop_growth_t['India'],df_lands_t["India"]))
+print("Saudi Arabia")
+print(scp.pearsonr(df_pop_growth_t['Saudi Arabia'],df_lands_t["Saudi Arabia"]))
+print("")
+print("Population VS Co emissions liquid:")
+print("China")
+print(scp.pearsonr(df_pop_growth_t['China'],df_Co2_liquid_t["China"]))
+print("India")
+print(scp.pearsonr(df_pop_growth_t['India'],df_Co2_liquid_t["India"]))
+print("Saudi Arabia")
+print(scp.pearsonr(df_pop_growth_t['Saudi Arabia'],df_Co2_liquid_t["Saudi Arabia"]))
+print("")
+print("Population VS Co emissions Solid:")
+print("China")
+print(scp.pearsonr(df_pop_growth_t['China'],df_Co3_solid_t["China"]))
+print("India")
+print(scp.pearsonr(df_pop_growth_t['India'],df_Co3_solid_t["India"]))
+print("Saudi Arabia")
+print(scp.pearsonr(df_pop_growth_t['Saudi Arabia'],df_Co3_solid_t["Saudi Arabia"]))
+print("")
+print("Population VS Agricultural lands:")
+print("China")
+print(scp.pearsonr(df_pop_growth_t['China'],df_agri_lands_t["China"]))
+print("India")
+print(scp.pearsonr(df_pop_growth_t['India'],df_agri_lands_t["India"]))
+print("Saudi Arabia")
+print(scp.pearsonr(df_pop_growth_t['Saudi Arabia'],df_agri_lands_t["Saudi Arabia"]))
+print("")
+
+
+
 #Plotting a boxplot 
 data = [df_pop_growth_t['United States'], df_pop_growth_t['China'], df_pop_growth_t['United Kingdom'], df_pop_growth_t['India'], df_pop_growth_t['Saudi Arabia']]
 #Including labels for the boxplot
@@ -93,9 +129,11 @@ plt.show()
 
 
 plt.figure()
-plt.plot(df_population_t['United States'])
-plt.plot(df_population_t['China'])
-plt.plot(df_population_t['India'])
-plt.plot(df_population_t['United Kingdom'])
+years = pd.to_datetime(df_agri_lands_t['Year'])
+#plt.plot(years, df_population_t['United States'])
+plt.plot(years, df_agri_lands_t['United States'])
+#plt.plot(years, df_population_t['China'])
+plt.plot(years, df_agri_lands_t['China'])
 #plt.xticks(df_population_t.iloc[:0])
 plt.show()
+
